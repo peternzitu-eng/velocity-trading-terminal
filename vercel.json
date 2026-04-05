@@ -1,0 +1,29 @@
+{
+    "version": 2,
+    "buildCommand": "npm install",
+    "outputDirectory": "public",
+    "functions": {
+          "api/**/*.js": {
+                  "maxDuration": 30
+          }
+    },
+    "rewrites": [
+          { "source": "/api/health", "destination": "/api/health" },
+          { "source": "/api/status", "destination": "/api/status" },
+          { "source": "/api/trades", "destination": "/api/trades" },
+          { "source": "/api/config", "destination": "/api/config" },
+          { "source": "/api/chat", "destination": "/api/chat" },
+          { "source": "/api/general-chat", "destination": "/api/general-chat" },
+          { "source": "/api/backtest", "destination": "/api/backtest" },
+          { "source": "/api/chart-data", "destination": "/api/chart-data" },
+          { "source": "/api/webhook/tradingview", "destination": "/api/webhook/tradingview" },
+          { "source": "/api/scanner", "destination": "/api/scanner" },
+          { "source": "/(.*)", "destination": "/index.html" }
+    ],
+    "crons": [
+          {
+                  "path": "/api/scanner",
+                  "schedule": "* * * * *"
+          }
+    ]
+}
